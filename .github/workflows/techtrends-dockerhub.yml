@@ -31,4 +31,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: techtrends/techtrends02:latest
+          tags: charry3/techtrends02:latest
