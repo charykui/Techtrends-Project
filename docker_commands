@@ -1,0 +1,37 @@
+# command used to build the docker image with reference of dockerfile in current directory(project)
+docker build -t techtrends01 .
+
+# command used to run and test the image/container
+docker run -d -p 7111:3111 techtrends01:latest
+#to check all images
+docker images
+#to check running containers
+docker ps
+#to check logs for container id below
+docker logs aa9b08652fca
+
+# TechTrends logs
+C:\Users\LENOVO\Desktop\project>docker logs aa9b08652fca
+DEBUG
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+172.17.0.1 - - [05/Sep/2021 10:32:53] "GET / HTTP/1.1" 200 -
+INFO:2021-09-05 10:33:34,929 - The About page has been opened successfully
+172.17.0.1 - - [05/Sep/2021 10:33:34] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [05/Sep/2021 10:33:42] "GET / HTTP/1.1" 200 -
+INFO:2021-09-05 10:33:48,197 - The About page has been opened successfully
+172.17.0.1 - - [05/Sep/2021 10:33:48] "GET /about HTTP/1.1" 200 -
+172.17.0.1 - - [05/Sep/2021 10:33:50] "GET /create HTTP/1.1" 200 -
+INFO:2021-09-05 10:34:03,712 - Article "new" created!
+172.17.0.1 - - [05/Sep/2021 10:34:03] "POST /create HTTP/1.1" 302 -
+172.17.0.1 - - [05/Sep/2021 10:34:03] "GET / HTTP/1.1" 200 -
+INFO:2021-09-05 10:34:06,013 - Article "2020 CNCF Annual Report" retrieved!
+172.17.0.1 - - [05/Sep/2021 10:34:06] "GET /1 HTTP/1.1" 200 -
+172.17.0.1 - - [05/Sep/2021 10:34:09] "GET / HTTP/1.1" 200 -
+INFO:2021-09-05 10:34:14,623 - Article "new" retrieved!
+172.17.0.1 - - [05/Sep/2021 10:34:14] "GET /7 HTTP/1.1" 200 -
+
