@@ -1,0 +1,9 @@
+piVersion: v1
+name: techtrends
+description: Install Project Techtrends Deployment 
+keywords:
+- techtrends 
+version: 1.0.0
+maintainers:
+- name: Charity
+- email: charycharice@gmail.com
