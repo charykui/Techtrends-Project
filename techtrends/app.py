@@ -1,3 +1,8 @@
+#By: Charity Chepkirui
+#Code References: Parts of code referenced from https://stackoverflow.com/questions/16061641/python-logging-split-between-stdout-and-stderr,
+                  #Udacity Cloud Native course
+                  #https://github.com/kevshakes/techtrends
+
 import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
