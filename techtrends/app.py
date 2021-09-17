@@ -2,27 +2,24 @@ import sqlite3
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
-from os import system
 import sys
-from datetime import datetime
 import logging
 
-logger = logging.getLogger('techtrends_logs')
-
-log_format = logging.Formatter('%(levelname)s:%(asctime)s - %(message)s')
-
+logger = logging.getLogger('Project-Techtrends')
 logger.setLevel(logging.DEBUG)
+formatter= logging.Formatter('%(asctime)s -%(levelname)- %(message)s ')
+
 print(logging.getLevelName(logger.level))
-if logging.getLevelName(logger.level) == 'INFO' or 'DEBUG':
-    stdout_handler = logging.StreamHandler(sys.stdout)
-    stdout_handler.setFormatter(log_format)
-    stdout_handler.setLevel(logging.getLevelName(logger.level))
-    logger.addHandler(stdout_handler)
+if logging.getLevelName(logger.level) == 'DEBUG':
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(formatter)
+    console_handler.setLevel(logging.getLevelName(logger.level))
+    logger.addHandler(console_handler)
 else:
-    stderr_handler = logging.StreamHandler(sys.stderr)
-    stderr_handler.setFormatter(log_format)
-    stderr_handler.setLevel(logging.getLevelName(logger.level))
-    logger.addHandler(stderr_handler)
+    eh = logging.StreamHandler(sys.stderr)
+    eh.setFormatter(formatter)
+    eh.setLevel(logging.getLevelName(logger.level))
+    logger.addHandler(eh)
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -81,11 +78,11 @@ def post(post_id):
     post = get_post(post_id)
     if post is None:
       logger.error(
-            'Article with id "{id}" does not exist!'.format(id=post_id))
+            'Article requested does not exist!'.format(id=post_id))
       return render_template('404.html'), 404
       
     else:
-      logger.info('Article "{title}" retrieved!'.format(title=post['title']))
+      logger.info('Article "{title}" retrieved Successfully!'.format(title=post['title']))
       return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -109,7 +106,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            logger.info('Article "{title}" created!'.format(title=title))
+            logger.info('Article "{title}" created successfully!'.format(title=title))
             return redirect(url_for('index'))
 
     return render_template('create.html')
