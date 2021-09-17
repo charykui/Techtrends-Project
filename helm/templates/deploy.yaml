@@ -8,10 +8,10 @@ metadata:
   labels:
     app: techtrends
   name: techtrends
-  namespace: sandbox
+  namespace: {{ .Values.namespace.name }}
   
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
         app: techtrends
@@ -27,7 +27,7 @@ spec:
     
     spec:
       containers:
-      - image: charry3/techtrends02:latest
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: IfNotPresent
         name: techtrends
         
