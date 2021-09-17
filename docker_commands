@@ -1,12 +1,15 @@
 # command used to build the docker image with reference of dockerfile in current directory(project)
-docker build -t techtrends01 .
+docker build -t techtrends02 .
 
 # command used to run and test the image/container
-docker run -d -p 7111:3111 techtrends01:latest
+docker run -d -p 7111:3111 techtrends02:latest
+
 #to check all images
 docker images
+
 #to check running containers
 docker ps
+
 #to check logs for container id below
 docker logs aa9b08652fca
 
