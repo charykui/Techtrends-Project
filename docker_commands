@@ -11,30 +11,31 @@ docker images
 docker ps
 
 #to check logs for container id below
-docker logs aa9b08652fca
+docker logs -f $(docker ps | grep techtrends02 | tr " " "\\n" | tail -1)
 
 # TechTrends logs
-C:\Users\LENOVO\Desktop\project>docker logs aa9b08652fca
-DEBUG
+
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
  * Debug mode: off
- * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-172.17.0.1 - - [05/Sep/2021 10:32:53] "GET / HTTP/1.1" 200 -
-INFO:2021-09-05 10:33:34,929 - The About page has been opened successfully
-172.17.0.1 - - [05/Sep/2021 10:33:34] "GET /about HTTP/1.1" 200 -
-172.17.0.1 - - [05/Sep/2021 10:33:42] "GET / HTTP/1.1" 200 -
-INFO:2021-09-05 10:33:48,197 - The About page has been opened successfully
-172.17.0.1 - - [05/Sep/2021 10:33:48] "GET /about HTTP/1.1" 200 -
-172.17.0.1 - - [05/Sep/2021 10:33:50] "GET /create HTTP/1.1" 200 -
-INFO:2021-09-05 10:34:03,712 - Article "new" created!
-172.17.0.1 - - [05/Sep/2021 10:34:03] "POST /create HTTP/1.1" 302 -
-172.17.0.1 - - [05/Sep/2021 10:34:03] "GET / HTTP/1.1" 200 -
-INFO:2021-09-05 10:34:06,013 - Article "2020 CNCF Annual Report" retrieved!
-172.17.0.1 - - [05/Sep/2021 10:34:06] "GET /1 HTTP/1.1" 200 -
-172.17.0.1 - - [05/Sep/2021 10:34:09] "GET / HTTP/1.1" 200 -
-INFO:2021-09-05 10:34:14,623 - Article "new" retrieved!
-172.17.0.1 - - [05/Sep/2021 10:34:14] "GET /7 HTTP/1.1" 200 -
-
+INFO:werkzeug:2021-09-27 20:11:03,169 -  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:2021-09-27 20:12:28,287 - 172.17.0.1 - - [27/Sep/2021 20:12:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:12:28,915 - 172.17.0.1 - - [27/Sep/2021 20:12:28] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:12:29,191 - 172.17.0.1 - - [27/Sep/2021 20:12:29] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:app:2021-09-27 20:16:56,826 - The About page has been Accessed successfully
+INFO:werkzeug:2021-09-27 20:16:56,834 - 172.17.0.1 - - [27/Sep/2021 20:16:56] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:16:59,385 - 172.17.0.1 - - [27/Sep/2021 20:16:59] "GET /create HTTP/1.1" 200 -
+INFO:app:2021-09-27 20:17:10,563 - Article title new post created successfully!
+INFO:werkzeug:2021-09-27 20:17:10,565 - 172.17.0.1 - - [27/Sep/2021 20:17:10] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:2021-09-27 20:17:10,714 - 172.17.0.1 - - [27/Sep/2021 20:17:10] "GET / HTTP/1.1" 200 -
+INFO:app:2021-09-27 20:17:14,243 - Article title 2020 CNCF Annual Report Accessed Successfully!
+INFO:werkzeug:2021-09-27 20:17:14,258 - 172.17.0.1 - - [27/Sep/2021 20:17:14] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:17:16,575 - 172.17.0.1 - - [27/Sep/2021 20:17:16] "GET / HTTP/1.1" 200 -
+INFO:app:2021-09-27 20:17:33,592 - Article title new post Accessed Successfully!
+INFO:werkzeug:2021-09-27 20:17:33,593 - 172.17.0.1 - - [27/Sep/2021 20:17:33] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:17:38,374 - 172.17.0.1 - - [27/Sep/2021 20:17:38] "GET / HTTP/1.1" 200 -
+INFO:app:2021-09-27 20:17:53,514 - Status request successfull
+INFO:werkzeug:2021-09-27 20:17:53,515 - 172.17.0.1 - - [27/Sep/2021 20:17:53] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:2021-09-27 20:18:04,298 - 172.17.0.1 - - [27/Sep/2021 20:18:04] "GET /metrics HTTP/1.1" 200 -
