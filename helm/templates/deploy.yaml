@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        imagePullPolicy: IfNotPresent
         name: techtrends
         
         ports:
@@ -37,14 +37,14 @@ spec:
         
         livenessProbe:
            httpGet:
-             path: {{ .Values.livenessProbe.path }}
-             port: {{ .Values.livenessProbe.port }}
+             path: /healthz
+             port: 3111
            initialDelaySeconds: 30
            periodSeconds: 3
         readinessProbe:
            httpGet:
-             path: {{ .Values.livenessProbe.path }}
-             port: {{ .Values.livenessProbe.port }}
+             path: /healthz
+             port: 3111
            initialDelaySeconds: 30
            periodSeconds: 3
         resources:
