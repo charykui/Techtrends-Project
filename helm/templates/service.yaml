@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: {{ .Values.AppName }}
-  name: {{ .Values.AppName }}
+    app: techtrends
+  name: techtrends
   namespace: {{ .Values.namespace.name }}
 spec:
   ports:
@@ -11,5 +11,5 @@ spec:
       protocol: TCP
       targetPort: 3111
   selector:
-    app: {{ .Values.AppName }}
+    app: techtrends
   type: ClusterIP
