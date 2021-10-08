@@ -28,17 +28,17 @@ spec:
     spec:
       containers:
       - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
         
         ports:
-        - containerPort: 3111
+        - containerPort: {{ .Values.containerPort }}
           protocol: TCP
         
         livenessProbe:
            httpGet:
-             path: /healthz
-             port: 3111
+             path: {{ .Values.livenessProbe.path }}
+             port: {{ .Values.livenessProbe.port }}
            
         readinessProbe:
            httpGet:
@@ -47,9 +47,9 @@ spec:
            
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "250m"
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
             
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
