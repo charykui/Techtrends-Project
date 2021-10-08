@@ -1,4 +1,5 @@
 
+
 apiVersion: apps/v1
 
 kind: Deployment
@@ -53,3 +54,7 @@ spec:
           limits:
             memory: {{ .Values.resources.limits.memory }}
             cpu: {{ .Values.resources.limits.cpu }}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 91befb44857ce791f5364c6837e47572ee6f6afa
